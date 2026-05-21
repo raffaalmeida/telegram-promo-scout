@@ -8,3 +8,8 @@ wheels/
 
 # Virtual environments
 .venv
+
+.env
+*.session
+*.session-journal
+__pycache__/

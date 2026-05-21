@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  bot-promoscout:
+    build: .
+    container_name: telegram_promo-scout
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # Maps the current local directory to /app in the container.
+      # This allows the container to read the .env and save the .session file locally.
+      - ./:/app
+      # Anonymous volume: Prevents your local Windows/Mac .venv from overwriting
+      # the Linux .venv created inside the container during the build process.
+      - /app/.venv
